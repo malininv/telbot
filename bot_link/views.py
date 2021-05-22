@@ -22,46 +22,20 @@ def index(request):
         all_posts = Post.objects.all()
 
     paginator = Paginator(all_posts, 2)
-    pag_number = request.GET.get('page', 1)
-    page = paginator.get_page(pag_number)
+    page_number = request.GET.get('page', 1)
+    page = paginator.get_page(page_number)
 
     is_paginated = page.has_other_pages()
 
-    page_url = '?'
-
-    if query_list:
-        for tag in query_list:
-            page_url += 'tag={}&'.format(tag)
-        page_url += 'page='
-
-    elif query_search:
-        page_url = '?search={}&page='.format(query_search)
-    else:
-        page_url = '?page='
+    tag_list = ['tag=' + '+'.join(tag.split()) + '&' for tag in query_list]
 
     if page.has_previous():
-        if query_list:
-            prev_url = '?'
-            for tag in query_list:
-                prev_url += 'tag={}&'.format(tag)
-            prev_url += '&page={}'.format(page.previous_page_number())
-        elif query_search:
-            prev_url = '?search={}&page={}'.format(query_search, page.previous_page_number())
-        else:
-            prev_url = '?page={}'.format(page.previous_page_number())
+        prev_url = 'page={}'.format(page.previous_page_number())
     else:
         prev_url = ''
 
     if page.has_next():
-        if query_list:
-            next_url = '?'
-            for tag in query_list:
-                next_url += 'tag={}&'.format(tag)
-            next_url += '&page={}'.format(page.next_page_number())
-        elif query_search:
-            next_url = '?search={}&page={}'.format(query_search, page.next_page_number())
-        else:
-            next_url = '?page={}'.format(page.next_page_number())
+        next_url = 'page={}'.format(page.next_page_number())
     else:
         next_url = ''
 
@@ -73,6 +47,6 @@ def index(request):
                'query_search': query_search,
                'next_url': next_url,
                'prev_url': prev_url,
-               'page_url': page_url
+               'tag_list': tag_list
                }
     return render(request, 'bot_link/index.html', context)
