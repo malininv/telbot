@@ -1,0 +1,85 @@
+* {
+    font-family: Roboto, sans-sarif, serif;
+    font-size: 20px;
+}
+
+form {
+    display: inline;
+}
+
+.post {
+    border: 2px dotted black;
+
+}
+
+.card {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.wrapper {
+    width: 80%;
+    margin: auto;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+#input-main input {
+    display: block;
+    margin-top: 25px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    margin-right: 8px;
+}
+
+.alert-warning {
+    width: 14%;
+    margin-top: 20px;
+}
+
+@keyframes anime {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade {
+    animation: anime 1.25s ease forwards;
+}
+
+
+.whatever {
+    display: inline-block;
+    background-color: #4178F0;
+    border-radius: 12px;
+    padding: 3px 12px 5px;
+    color: white;
+    margin-bottom: 20px;
+    margin-right: 8px;
+}
+
+#checkboxes input[type=checkbox] {
+    display: none;
+}
+
+#checkboxes input[type=checkbox]:checked + .whatever {
+
+    background-color: #0e0cac;
+}
+
+
+@media screen and (max-width: 480px) {
+    * {
+        font-size: 15px;
+    }
+}
+
+/*# sourceMappingURL=style.css.map */

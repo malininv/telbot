@@ -1,0 +1,64 @@
+* {
+    font-family: Roboto, sans-sarif, serif;
+  font-size: 20px; }
+form {
+  display: inline;
+}
+
+.post {
+  border: 2px dotted black;
+}
+
+.tag{
+  color:blue;
+}
+nav{
+    margin-top: 20px;
+}
+
+#input-main input{
+    display: block;
+    margin-top: 20px;
+}
+
+.hide {
+  display: none; }
+
+.show {
+  display: block; }
+
+.fade {
+  animation: anime 1.5s ease; }
+
+@keyframes anime {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.whatever{
+        display: inline-block;
+
+        background-color: #7C79FF;
+
+        width: 200px;
+        height: 40px;
+        color: white
+    }
+    
+#checkboxes input[type=checkbox]{
+        display: none;
+    }
+    
+#checkboxes input[type=checkbox]:checked + .whatever{
+
+        background-color: #0e0cac;
+    }
+
+
+
+@media screen and (max-width: 480px) {
+  * {
+    font-size: 15px; } }
+
+/*# sourceMappingURL=style.css.map */
