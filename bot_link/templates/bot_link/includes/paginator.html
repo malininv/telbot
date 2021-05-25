@@ -10,12 +10,12 @@
         {% if page_obj.number == n %}
 
         <li class="page-item active">
-            <a class="page-link" href="?{%for tag in tag_list%}{{tag}}{%endfor%}{%if query_search%}search={{query_search}}&{%endif%}page={{n}}">{{n}}</a>
+            <a class="page-link" href="?{{url}}&page={{n}}">{{n}}</a>
         </li>
 
         {% else %}
         <li class="page-item">
-            <a class="page-link" href="?{%for tag in tag_list%}{{tag}}{%endfor%}{%if query_search%}search={{query_search}}&{%endif%}page={{n}}">{{n}}</a>
+            <a class="page-link" href="?{{url}}&page={{n}}">{{n}}</a>
         </li>
 
         {% endif %}

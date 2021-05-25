@@ -23,7 +23,7 @@ def index(request):
     page_number = request.GET.get('page', 1)
     page = paginator.get_page(page_number)
 
-    url = urlencode([('tag', i) for i in query_list] + [('search', query_search)])
+    url = urlencode([('tag', i) for i in query_list] + [('search', q) for q in query_search])
 
     context = {'all_posts': page.object_list,
                'all_tags': all_tags,
