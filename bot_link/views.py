@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.db.models import Q, Count
 from django.core.paginator import Paginator
-from django.http import JsonResponse
+from django.template.loader import render_to_string
+from django.http import HttpResponse
 from urllib.parse import urlencode
 from .models import *
 
@@ -26,9 +27,6 @@ def index(request):
 
     url = urlencode([('tag', i) for i in query_list] + [('search', q) for q in query_search])
 
-    if request.is_ajax():
-        return JsonResponse({'all_posts': list(all_posts.values())})
-
     context = {'all_posts': page.object_list,
                'all_tags': all_tags,
                'page_obj': page,
@@ -36,4 +34,9 @@ def index(request):
                'query_search': query_search,
                'url': url
                }
+
+    if request.is_ajax():
+
+        return HttpResponse(render_to_string('bot_link/includes/post_card.html', context, request))
+
     return render(request, 'bot_link/index.html', context)
