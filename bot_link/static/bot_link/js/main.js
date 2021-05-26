@@ -5,9 +5,8 @@ $(document).ready(() => {
         e.preventDefault()
         $.ajax({
             url: '',
-            data: $('#input-main').serialize(),
+            data: $(this).serialize(),
             success: (response) => {
-                console.log(response)
                 $('.container-posts').empty()
                 $('.pagination').empty()
                 response.all_posts.forEach((e) => {
@@ -15,14 +14,14 @@ $(document).ready(() => {
                     <div class="card text-left fade"> 
                     <div class="card-header text-left">
                 
-                            <strong>${e.post_text}</strong>
+                            <strong>Тут должны быть теги</strong>
                
                         </div>
                         <div class="card-body">
                             <p class="card-text">${e.post_text}</p>
                          </div>
                         <div class="card-footer text-muted">
-                            ${e.date_pub}
+                            ${e.date_pub} - кривое время
                       </div>
                 
                        </div>`)
