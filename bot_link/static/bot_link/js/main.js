@@ -5,7 +5,7 @@ $(document).ready(() => {
         e.preventDefault()
 
         const getReq = $('#input-main').serialize()
-
+        console.log(getReq)
         $.ajax({
             url: '',
             data: getReq,
@@ -14,7 +14,7 @@ $(document).ready(() => {
             }
         })
 
-         history.replaceState('','','?'+getReq);
+        history.pushState(None, None, `?${getReq}`);
     })
 
 })
