@@ -3,7 +3,6 @@ $(document).ready(() => {
 
     $('#input-main').submit((e) => {
         e.preventDefault()
-
         const getReq = $('#input-main').serialize()
         console.log(getReq)
         $.ajax({
@@ -14,7 +13,7 @@ $(document).ready(() => {
             }
         })
 
-        history.pushState(None, None, `?${getReq}`);
+        history.replaceState(null, null, `?${getReq}`);
     })
 
 })
