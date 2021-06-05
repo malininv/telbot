@@ -1,6 +1,6 @@
 import telebot
-
-token = '1877422283:AAG0oeNDiP_QVgHvcbKk_NUpr2ZiDzH_Yuk'
+from token import tok_name
+token = tok_name
 
 bot = telebot.TeleBot(token)
 
@@ -14,5 +14,5 @@ def send_welcome(message):
 def echo_all(message):
     bot.reply_to(message, message.text)
 
-
 bot.polling()
+
